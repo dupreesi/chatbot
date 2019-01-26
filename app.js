@@ -13,9 +13,8 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 //register routes
 server.use(routes);
+const PORT = process.env.PORT;
 
-const PORT = 3333;
-
-server.listen(PORT);
+server.listen(3333 || PORT);
 
 module.exports = server;
