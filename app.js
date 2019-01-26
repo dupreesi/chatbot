@@ -13,8 +13,8 @@ server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 //register routes
 server.use(routes);
-const PORT = process.env.PORT;
-
-server.listen(3333 || PORT);
-
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+  console.log(`Our app is running on port ${PORT}`);
+});
 module.exports = server;
