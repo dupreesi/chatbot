@@ -2,17 +2,20 @@
 
 const express = require('express'),
   bodyParser = require('body-parser'),
-  server = express(),
+  http = require('http'),
   dbConnection = require('./db/dbConnection'),
   routes = require('./api/Routes/Routes');
 // connect to mongo
 dbConnection();
+const server = express();
 
-server.use(bodyParser.urlencoded({ extended: true }));
+server.use(bodyParser.urlencoded({ extended: false }));
 server.use(bodyParser.json());
 //register routes
-routes(server);
+server.use(routes);
 
-server.listen(process.env.PORT || 8000, function() {
-  console.log('Server is up and listening on port' + process.env.PORT);
-});
+const PORT = 3333;
+
+server.listen(PORT);
+
+module.exports = server;
