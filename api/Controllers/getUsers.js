@@ -24,9 +24,6 @@ const getUserInfo = (req, res) => {
       return res.json({
         fulfillmentMessages: [
           {
-            fulfillmentText: `Welcome back ${userExists.name}!`
-          },
-          {
             card: {
               title: `How was your Day at School ${userExists.name}?`,
               imageUri:
