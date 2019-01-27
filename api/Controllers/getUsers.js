@@ -22,6 +22,27 @@ const getUserInfo = (req, res) => {
     }
     if (userExists) {
       return res.json({
+        fulfillmentMessages: [
+          {
+            card: {
+              title: 'How was your Day at School?',
+              subtitle: `How was your Day at School ${userExists.name}?`,
+              imageUri:
+                'https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png',
+              buttons: [
+                {
+                  text: 'good',
+                  postback: 'https://assistant.google.com/'
+                },
+                {
+                  text: 'bad',
+                  postback: 'https://assistant.google.com/'
+                }
+              ]
+            }
+          }
+        ],
+
         fulfillmentText: `Welcome back ${
           userExists.name
         }! How was your day at school today?`,
