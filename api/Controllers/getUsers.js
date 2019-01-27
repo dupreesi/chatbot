@@ -66,6 +66,6 @@ const getUserInfo = (req, res) => {
 };
 
 const updateUserInfo = (req, res) => {
-  let mood = req.body.queryResult.parameters.mood;
-  updateMood('Nadia', mood);
+  // let mood = req.body.queryResult.parameters.mood;
+  updateMood('Nadia', 'bad');
 };
