@@ -23,9 +23,20 @@ const getUserInfo = (req, res) => {
     }
     if (userExists) {
       return res.json({
-        // speech: userExists.name,
-        displayText: userExists.name,
-        source: 'user-info'
+        payload: {
+          google: {
+            expectUserResponse: false,
+            richResponse: {
+              items: [
+                {
+                  simpleResponse: {
+                    textToSpeech: 'Goodbye!' + userExists.name
+                  }
+                }
+              ]
+            }
+          }
+        }
       });
     } else {
       return res.json({
