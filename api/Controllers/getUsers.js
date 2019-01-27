@@ -17,31 +17,20 @@ const getUserInfo = (req, res) => {
       return res.json({
         //This is the standard format of response for Dialogflow, i.e. Dialogflow will only be able to parse the response if it has these three keys.
         // speech: 'Something went wrong',
-        displayText: 'Something went wrong',
+        fulfillmentText: 'Something went wrong',
         source: 'user-info'
       });
     }
     if (userExists) {
       return res.json({
-        payload: {
-          google: {
-            expectUserResponse: false,
-            richResponse: {
-              items: [
-                {
-                  simpleResponse: {
-                    textToSpeech: 'Goodbye!' + userExists.name
-                  }
-                }
-              ]
-            }
-          }
-        }
+        fulfillmentText: 'Something went wrong' + userExists.name,
+        source: 'user-info'
       });
     } else {
       return res.json({
         // speech: 'Currently I am not having information about this user',
-        displayText: 'Currently I am not having information about this user',
+        fulfillmentText:
+          'Currently I am not having information about this user',
         source: 'user-info'
       });
     }
