@@ -2,10 +2,15 @@
 // load model
 const User = require('../../db/User');
 
+const updateMood = require('../../db/udateUser');
+
 exports.processRequest = (req, res) => {
   // list actions and call queries
   if (req.body.queryResult.action == 'user-info') {
     getUserInfo(req, res);
+  }
+  if (req.body.queryResult.action == 'school-day') {
+    updateUserInfo(req, res);
   }
 };
 
@@ -58,4 +63,11 @@ const getUserInfo = (req, res) => {
       });
     }
   });
+};
+
+const updateUserInfo = (req, res) => {
+  let name = req.body.queryResult.parameters.mood;
+  let mood = req.body.queryResult.parameters.mood;
+  updateMood('Nadia', mood);
+  res.send('success');
 };
