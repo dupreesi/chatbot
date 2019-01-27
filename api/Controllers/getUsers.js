@@ -16,20 +16,20 @@ const getUserInfo = (req, res) => {
     if (err) {
       return res.json({
         //This is the standard format of response for Dialogflow, i.e. Dialogflow will only be able to parse the response if it has these three keys.
-        speech: 'Something went wrong',
+        // speech: 'Something went wrong',
         displayText: 'Something went wrong',
         source: 'user-info'
       });
     }
     if (userExists) {
       return res.json({
-        speech: userExists.name,
+        // speech: userExists.name,
         displayText: userExists.name,
         source: 'user-info'
       });
     } else {
       return res.json({
-        speech: 'Currently I am not having information about this user',
+        // speech: 'Currently I am not having information about this user',
         displayText: 'Currently I am not having information about this user',
         source: 'user-info'
       });
