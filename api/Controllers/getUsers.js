@@ -4,15 +4,13 @@ const User = require('../../db/User');
 
 exports.processRequest = (req, res) => {
   // list actions and call queries
-  if (req.body.result.action == 'user-info') {
+  if (req.body.queryResult.action == 'user-info') {
     getUserInfo(req, res);
   }
 };
 
 const getUserInfo = (req, res) => {
-  console.log(req.body.result.parameters.name);
-
-  let userToSearch = req.body.result.parameters.name;
+  let userToSearch = req.body.queryResult.parameters.name;
 
   User.findOne({ name: userToSearch }, function(err, userExists) {
     if (err) {
@@ -33,7 +31,7 @@ const getUserInfo = (req, res) => {
       return res.json({
         speech: 'Currently I am not having information about this user',
         displayText: 'Currently I am not having information about this user',
-        source: 'user info'
+        source: 'user-info'
       });
     }
   });
