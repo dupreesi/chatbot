@@ -62,11 +62,12 @@ const getUserInfo = (req, res) => {
             }
           }
         ],
-
-        fulfillmentText: `Welcome back ${
-          userExists.name
-        }! How was your day at school today?`,
         source: 'user-info'
+
+        // fulfillmentText: `Welcome back ${
+        //   userExists.name
+        // }! How was your day at school today?`,
+        // source: 'user-info'
       });
     } else {
       return res.json({
