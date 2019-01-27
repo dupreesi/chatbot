@@ -24,19 +24,23 @@ const getUserInfo = (req, res) => {
       return res.json({
         fulfillmentMessages: [
           {
+            fulfillmentText: `Welcome back ${userExists.name}!`
+          },
+          {
             card: {
-              title: 'How was your Day at School?',
-              subtitle: `How was your Day at School ${userExists.name}?`,
+              title: `How was your Day at School ${userExists.name}?`,
               imageUri:
                 'https://media0.giphy.com/media/gtmEIOOOHVgHK/giphy.gif',
               buttons: [
                 {
                   text: 'good',
-                  postback: '/update-mood-good/'
+                  postback:
+                    'https://chatbotnightingale.herokuapp.com/update-mood-good'
                 },
                 {
                   text: 'bad',
-                  postback: '/update-mood-bad/'
+                  postback:
+                    'https://chatbotnightingale.herokuapp.com/update-mood-bad'
                 }
               ]
             }
