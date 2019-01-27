@@ -16,7 +16,8 @@ const getUserInfo = (req, res) => {
     if (err) {
       return res.json({
         fulfillmentText: 'Something went wrong',
-        source: 'user-info'
+        source: 'user-info',
+        expectUserResponse: false
       });
     }
     if (userExists) {
