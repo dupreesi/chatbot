@@ -32,31 +32,11 @@ const getUserInfo = (req, res) => {
               buttons: [
                 {
                   text: 'good',
-                  postback: User.findOneAndUpdate(
-                    { name: userExists.name },
-                    { $set: { mood: 'good' } },
-                    { new: true },
-                    (err, doc) => {
-                      if (err) {
-                        console.log('Something wrong when updating data!');
-                      }
-                      console.log(doc);
-                    }
-                  )
+                  postback: '/update-mood-good/'
                 },
                 {
                   text: 'bad',
-                  postback: User.findOneAndUpdate(
-                    { name: userExists.name },
-                    { $set: { mood: 'bad' } },
-                    { new: true },
-                    (err, doc) => {
-                      if (err) {
-                        console.log('Something wrong when updating data!');
-                      }
-                      console.log(doc);
-                    }
-                  )
+                  postback: '/update-mood-bad/'
                 }
               ]
             }
