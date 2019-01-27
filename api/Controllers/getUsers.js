@@ -28,15 +28,35 @@ const getUserInfo = (req, res) => {
               title: 'How was your Day at School?',
               subtitle: `How was your Day at School ${userExists.name}?`,
               imageUri:
-                'https://assistant.google.com/static/images/molecule/Molecule-Formation-stop.png',
+                'https://media0.giphy.com/media/gtmEIOOOHVgHK/giphy.gif',
               buttons: [
                 {
                   text: 'good',
-                  postback: 'https://assistant.google.com/'
+                  postback: User.findOneAndUpdate(
+                    { name: userExists.name },
+                    { $set: { mood: 'good' } },
+                    { new: true },
+                    (err, doc) => {
+                      if (err) {
+                        console.log('Something wrong when updating data!');
+                      }
+                      console.log(doc);
+                    }
+                  )
                 },
                 {
                   text: 'bad',
-                  postback: 'https://assistant.google.com/'
+                  postback: User.findOneAndUpdate(
+                    { name: userExists.name },
+                    { $set: { mood: 'bad' } },
+                    { new: true },
+                    (err, doc) => {
+                      if (err) {
+                        console.log('Something wrong when updating data!');
+                      }
+                      console.log(doc);
+                    }
+                  )
                 }
               ]
             }

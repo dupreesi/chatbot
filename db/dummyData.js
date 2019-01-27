@@ -6,7 +6,7 @@ dbConnection();
 const createData = async () => {
   const newUser = new User({
     name: 'Nadia',
-    age: '15'
+    mood: null
   });
   await newUser
     .save()
