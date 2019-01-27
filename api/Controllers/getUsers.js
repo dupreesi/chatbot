@@ -22,33 +22,33 @@ const getUserInfo = (req, res) => {
     }
     if (userExists) {
       return res.json({
-        fulfillmentMessages: [
-          {
-            card: {
-              title: `How was your Day at School ${userExists.name}?`,
-              imageUri:
-                'https://media0.giphy.com/media/gtmEIOOOHVgHK/giphy.gif',
-              buttons: [
-                {
-                  text: 'good',
-                  postback:
-                    'https://chatbotnightingale.herokuapp.com/update-mood-good'
-                },
-                {
-                  text: 'bad',
-                  postback:
-                    'https://chatbotnightingale.herokuapp.com/update-mood-bad'
-                }
-              ]
-            }
-          }
-        ],
-        source: 'user-info'
-
-        // fulfillmentText: `Welcome back ${
-        //   userExists.name
-        // }! How was your day at school today?`,
+        // fulfillmentMessages: [
+        //   {
+        //     card: {
+        //       title: `How was your Day at School ${userExists.name}?`,
+        //       imageUri:
+        //         'https://media0.giphy.com/media/gtmEIOOOHVgHK/giphy.gif',
+        //       buttons: [
+        //         {
+        //           text: 'good',
+        //           postback:
+        //             'https://chatbotnightingale.herokuapp.com/update-mood-good'
+        //         },
+        //         {
+        //           text: 'bad',
+        //           postback:
+        //             'https://chatbotnightingale.herokuapp.com/update-mood-bad'
+        //         }
+        //       ]
+        //     }
+        //   }
+        // ],
         // source: 'user-info'
+
+        fulfillmentText: `Welcome back ${
+          userExists.name
+        }! Would you like to talk about your day at school?`,
+        source: 'user-info'
       });
     } else {
       return res.json({

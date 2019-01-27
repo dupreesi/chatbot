@@ -10,7 +10,11 @@ router.get('/', function(req, res) {
 // registerUser Route
 router.route('/').post(getUserController.processRequest);
 
-router.post('/update-mood-good', (req, res) => {
+router.get('/update-mood-good', function(req, res) {
+  res.send('CLICK');
+});
+
+router.post('/update-mood-good', function(req, res) {
   const mood = req.path.split('-')[2].split('/')[0];
   updateUser('Nadia', mood);
 });
