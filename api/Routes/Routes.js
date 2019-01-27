@@ -4,7 +4,7 @@ const router = express.Router();
 const getUserController = require('../Controllers/getUsers');
 
 router.get('/', function(req, res) {
-  res.send('We are happy to see you using Chat Bot Webhook');
+  res.send('YEAAAAHHHHH');
 });
 // registerUser Route
 router.route('/').post(getUserController.processRequest);
