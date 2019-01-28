@@ -7,7 +7,7 @@ router.get('/', function(req, res) {
   res.send('Welcome');
 });
 
-// registerUser Route
-router.route('/').post(getUserController.processRequest);
+// // registerUser Route
+// router.route('/').post(getUserController.processRequest);
 
-module.exports = router;
+// module.exports = router;
